@@ -1,5 +1,4 @@
 # FormValidator
-Traversy Media:  Vanilla Web Projects
 
 [Vanilla Web Projects: Traversy Media](https://vanillawebprojects.com/)
 
