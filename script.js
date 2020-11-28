@@ -24,10 +24,35 @@ function isValidEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
+// Check required fields - using high order Array methods - forEach
+function checkRequired(inputArr) {
+  inputArr.forEach(function(input) {
+    // console.log(input.value); to test looping through the array
+    if (input.value.trim() === '') {
+      showError(input, `${getFieldName(input)} is required`);
+    } else {
+      showSuccess(input);
+    }
+  })
+}
+
+// Get fieldname - used to capitalize first character of input value
+function getFieldName(input) {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
+
+// Event listener - refactored for cleaner code - using Array
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  checkRequired([username, email, password, password2]);
+})
 
 
 
-//Event listeners
+
+/*Event listeners - using simple if statments - prior to being refactored
 form.addEventListener('submit', function(e) {
   e.preventDefault();
 
@@ -57,3 +82,4 @@ form.addEventListener('submit', function(e) {
     showSuccess(password2);
   }
 })
+*/
